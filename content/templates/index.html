@@ -1,0 +1,133 @@
+{% extends 'layouts/base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_filters %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <div class="header-body">
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-lg-6" style="text-align: center">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Tweets Numbers</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <i class="fas fa-chart-bar"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6" style="text-align: center">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Following Number</h5>
+                      <span class="h2 font-weight-bold mb-0">2,356</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <i class="fas fa-users"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 " style="text-align: center">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Follower numbers</h5>
+                      <span class="h2 font-weight-bold mb-0">924</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                        <i class="fas fa-users"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6" style="text-align: center">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Twitter User</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ request.user.username }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-info text-white rounded-circle shadow" >
+                        <i class="fas fa-user"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="container" style="width: 600px; height: 200px ;margin-bottom: 20px">
+  <div class="container-fluid mt-3" style="text-align: center">
+                    {% bootstrap_messages %}
+            </div>
+<form method="post">
+                 {% csrf_token %}
+   <div class="card" style="; margin-bottom:20px;border-style: solid;background-color: #825ee4" >
+
+    <div class="card-body" >
+        <h2 style="text-align: center;;font-size:xx-large">Account  setting</h2>
+        <div class="input-group mb-3">
+            <div class="wrap-input100 validate-input m-b-20">
+				{{form.username|as_crispy_field }}
+            </div>
+              <div class="wrap-input100 validate-input m-b-20">
+				 {{form.email|as_crispy_field }}
+            </div>
+           </div>
+             <div class="row">
+                 <div class="col-20>" style="margin-left: 20px">
+              {{form.positive_words|as_crispy_field}}
+             </div>
+              <div class="col-20>" style="margin-left: 20px">
+                  {{form.negative_words|as_crispy_field}}
+              </div>
+             </div>
+        	<button class="login100-form-btn p-b-20" style="height: 40px ;background-color: #5603ad">
+							Change/Start
+						</button>
+    </div>
+
+
+  </div>
+</form>
+</div>
+<div>
+
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

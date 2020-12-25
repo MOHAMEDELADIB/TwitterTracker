@@ -1,0 +1,52 @@
+
+
+.ctrl{
+	width:100%;
+  position:relative;
+}
+
+.nortification{
+	display:block;
+	font-size:14px;
+	width:300px;
+	padding:5px 0;
+	position:absolute;
+  left:50%;
+  margin-left:-140px;
+  box-sizing:border-box;
+  border-radius:15px;
+  background-color:#fff;
+  color:#3a9ab9;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.2);
+}
+
+.animateOpen{
+	-webkit-animation:moveOpen 30s;
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-fill-mode: forwards;
+}
+/* Safari and Chrome */
+/* Safari and Chrome */
+@-webkit-keyframes moveOpen
+	{
+  from {-webkit-transform: translate(0,-30px);}
+  10% {-webkit-transform: translate(0,20px);}
+  12% {-webkit-transform: translate(0,22px);}
+  16% {-webkit-transform: translate(0,20px);}
+  80% {-webkit-transform: translate(0,20px);}
+  85% {-webkit-transform: translate(0,25px);}
+  to {-webkit-transform: translate(0,-30px);}
+}
+.alert {
+   width:100%
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
